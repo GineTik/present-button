@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>beautiful button</title>
+
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="present-screen screen-1">
+        <div class="btn-wrapper">
+            <a href="#" class="btn">Кнопка</a>
+            <div class="wave"></div>
+        </div>
+    </div>
+
+    <div class="present-screen screen-2">
+        <div class="btn-wrapper">
+            <span class="btn">Кнопка</span>
+            <div class="progress"></div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('.screen-2 .btn-wrapper').on('click', function(){
+                    $('.screen-2 .btn-wrapper .progress').addClass('start-progress');
+                    $('.screen-2 .btn-wrapper .btn').addClass('finish-progress');
+                });
+            });
+        </script>
+    </div>
+
+    <div class="present-screen screen-3">
+        <div class="btn">
+            <span class="btn-title">Кнопка</span>
+            <ul class="btn-line-effect">
+                <li class="btn-line-effect-item"></li>
+                <li class="btn-line-effect-item"></li>
+                <li class="btn-line-effect-item"></li>
+                <li class="btn-line-effect-item"></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- <div class="present-screen screen-3">
+        <div class="menu">
+            <div class="menu-item-select">Файл</div>
+            <ul class="menu-block">
+                <li class="menu-item">Файл</li>
+                <li class="menu-item">Файл</li>
+                <li class="menu-item">Файл</li>
+                <li class="menu-item">Файл</li>
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="menu-item-select">Файл</div>
+            <ul class="menu-block">
+                <li class="menu-item">Файл</li>
+                <li class="menu-item">Наше братство</li>
+                <li class="menu-item">Файл</li>
+                <li class="menu-item">Файл</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="present-screen screen">
+        <div class="card-wrapper">
+            <div class="img"><span>img</span></div>
+            <div class="info-img">
+                <h3 class="title-img">Title</h3>
+                <p class="text-img">
+                    texttexttexttexttexttexttexttexttext
+                </p>
+            </div>
+        </div>
+    </div> -->
+</body>
+</html>

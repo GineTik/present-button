@@ -1,0 +1,446 @@
+body{
+    background: black;
+}
+
+.present-screen{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wrapper{
+    overflow: hidden;
+    width: 260px;
+    height: 60px;
+    border-radius: 0 0 10px 10px;
+
+    cursor: pointer;
+
+    transition-property: border-radius, box-shadow;
+    transition-duration: .4s;
+
+    position: relative;
+}
+.btn-wrapper .btn{
+    /*padding: 10px 25px 10px 25px;*/
+
+    /*background: #4d95e3;*/
+
+
+    color: white;
+	text-decoration: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    z-index: 1;
+
+    letter-spacing: 4px;
+    font-family: Arial;
+}
+
+.wave{
+    transition: top .5s;
+    background: #4d95e3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 160px;
+}
+.btn-wrapper:hover{
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(77, 149, 227, 0.3);
+}
+.btn-wrapper:hover .wave{
+    position: absolute;
+    top: -100%;
+}
+.wave:before,
+.wave:after{
+    content: '';
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160%;
+    height: 230%;
+
+    border-radius: 220px;
+
+    transform: rotateZ(0deg) scale(1, 1);
+}
+.wave:after{
+    opacity: 1;
+
+    transform: scale(1, 1);
+
+    animation: waves 16s infinite;
+}
+.wave:before{
+    opacity: 0.7;
+
+    transform: scale(1, 0.5);
+
+    animation: waves 10s infinite;
+}
+
+@keyframes waves {
+    0% {
+        transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+    }
+    50% {
+        transform: translate3d(-17%, -140%, 0) rotateZ(360deg) scale(1.8, 1.97);
+    }
+    100% {
+        transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+    }
+}
+
+
+
+/*btn-2*/
+$finish-text-download: 'Загружено';
+$start-text-download: 'Загрузка...';
+
+.screen-2 .btn-wrapper{
+    background: #2ac48f;
+    border-radius: 10px;
+
+    position: relative;
+}
+.screen-2 .btn-wrapper .btn{
+    z-index: 2;
+}
+.progress{
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #22986f;
+    z-index: 1;
+}
+.start-progress{
+    animation: progress-line 3s forwards;
+}
+.start-progress:after{
+    content: $start-text-download;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: Arial;
+
+    color: white;
+    animation: progress-start 3.3s forwards;
+}
+.start-progress:before{
+    content: $finish-text-download;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: Arial;
+
+    color: white;
+    animation: progress-finish .3s forwards 3s;
+}
+.screen-2 .btn-wrapper .btn.finish-progress{
+    animation: progress-finish-2 .3s forwards;
+}
+
+@keyframes progress-line {
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+@keyframes progress-start {
+    0%{
+        top: -50%;
+    }
+    10%{
+        top: 50%;
+    }
+    90%{
+        top: 50%;
+    }
+    100%{
+        top: 150%;
+    }
+}
+@keyframes progress-finish {
+    0%{
+        top: -10%;
+    }
+    100%{
+        top: 50%;
+    }
+}
+@keyframes progress-finish-2 {
+    0%{
+        top: 50%;
+    }
+    100%{
+        top: 150%;
+    }
+}
+
+
+/* 
+    !MENU
+*/
+// .screen-3{
+//     color: white;
+
+//     .menu{
+//         margin-left: 50px;
+//         cursor: pointer;
+
+//         &-item-select{
+//             padding: 15px;
+//             border: 1px solid #22986f;
+//             border-radius: 5px;
+
+//             transition: all .3s;
+//         }
+
+//         ul{
+//             padding: 15px;
+//             margin: 0;
+//             margin-top: -5px;
+//             border-radius: 0 5px 5px 5px;
+//             display: none;
+//             position: absolute;
+//             border: 1px solid transparent;
+
+//             background: #ffffff;
+
+//             transition: all .3s;
+
+//             li{
+//                 color: #000;
+//                 list-style: none;
+//             }
+//         }
+//     }
+//     .menu:hover .menu-item-select{
+//         background: #ffffff;
+//         color: #000000;
+//         border: 1px solid transparent;
+//         border-radius: 5px 5px 0 0;
+//     }
+//     .menu:hover ul{
+//         display: block;
+//     }
+// }
+
+
+/*
+    !third button with light line effect
+*/
+
+.screen-3{
+    .btn{
+        width: 260px;
+        height: 60px;
+        overflow: hidden;
+
+        position: relative;
+
+        cursor: pointer;
+
+        background: #000;
+        box-shadow: 0;
+        transition: background .3s .3s,  box-shadow .3s .3s;
+
+        &-title{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            
+            color: #ffffff;
+
+            font-style: 16px;
+            font-family: Arial;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        &-line-effect{
+            &-item{
+                list-style: none;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #1111c0);
+            }
+            &-item:nth-child(1){
+                position: absolute;
+                top: 0;
+                left: -100%;
+            }
+            &-item:nth-child(2){
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(360deg, transparent, #1111c0);
+            }
+            &-item:nth-child(3){
+                position: absolute;
+                bottom: 0;
+                right: -100%;
+                background: linear-gradient(-90deg, transparent, #1111c0);
+            }
+            &-item:nth-child(4){
+                position: absolute;
+                top: -100%;
+                right: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(transparent, #1111c0);
+            }
+        }
+    }
+    .btn:hover{
+        background: #1010d3;
+        box-shadow: 0 0 30px #1010d3;
+        & .btn-line-effect{
+            &-item:nth-child(1){
+                animation: line-1 .5s forwards .15s;
+            }
+            &-item:nth-child(2){
+                animation: line-2 .3s forwards;
+            }
+            &-item:nth-child(3){
+                animation: line-3 .5s forwards .15s;
+            }
+            &-item:nth-child(4){
+                animation: line-4 .3s forwards;
+            }
+        }
+    }
+}
+
+@keyframes line-1{
+    0%{
+        top: 0;
+        left: -100%;
+    }
+    100%{
+        top: 0;
+        left: 100%;
+    }
+}
+@keyframes line-2{
+    0%{
+        top: 100%;
+        left: 0;
+    }
+    100%{
+        top: -100%;
+        left: 0;
+    }
+}
+@keyframes line-3{
+    0%{
+        bottom: 0;
+        right: -100%;
+    }
+    100%{
+        bottom: 0;
+        right: 100%;
+    }
+}
+@keyframes line-4{
+    0%{
+        top: -100%;
+        right: 0;
+    }
+    100%{
+        top: 100%;
+        right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*card-with-img-and-beautiful-present-info-img*/
+
+// .card-wrapper{
+//     width: 300px;
+//     height: 300px;
+
+//     position: relative;
+//     overflow: hidden;
+// }
+// .card-wrapper .img{
+//     width: 100%;
+//     height: 100%;
+
+//     background: #5ea0b3;
+//     transition: height .3s;
+
+//     position: relative;
+// }
+// .img span{
+//     position: absolute;
+//     top: 45%;
+//     left: 45%;
+// }
+// .info-img{
+//     position: absolute;
+//     left: 0;
+//     bottom: -60px;
+//     background: darkorchid;
+//     height: 60px;
+//     width: 100%;
+//     padding: 10px;
+//     color: white;
+//     box-sizing: border-box;
+//     transition: bottom .3s;
+// }
+// .info-img h3,
+// .info-img p{
+//     margin: 0;
+// }
+
+// .card-wrapper:hover .info-img{
+//     bottom: 0;
+// }
+// .card-wrapper:hover .img{
+//     height: calc(100% - 60px);
+// }

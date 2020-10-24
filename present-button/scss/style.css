@@ -1,0 +1,471 @@
+@charset "UTF-8";
+body {
+  background: black;
+}
+
+.present-screen {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-wrapper {
+  overflow: hidden;
+  width: 260px;
+  height: 60px;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  -webkit-transition-property: border-radius, -webkit-box-shadow;
+  transition-property: border-radius, -webkit-box-shadow;
+  transition-property: border-radius, box-shadow;
+  transition-property: border-radius, box-shadow, -webkit-box-shadow;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+  position: relative;
+}
+
+.btn-wrapper .btn {
+  /*padding: 10px 25px 10px 25px;*/
+  /*background: #4d95e3;*/
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  z-index: 1;
+  letter-spacing: 4px;
+  font-family: Arial;
+}
+
+.wave {
+  -webkit-transition: top .5s;
+  transition: top .5s;
+  background: #4d95e3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 160px;
+}
+
+.btn-wrapper:hover {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 50px rgba(77, 149, 227, 0.3);
+          box-shadow: 0 0 50px rgba(77, 149, 227, 0.3);
+}
+
+.btn-wrapper:hover .wave {
+  position: absolute;
+  top: -100%;
+}
+
+.wave:before,
+.wave:after {
+  content: '';
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160%;
+  height: 230%;
+  border-radius: 220px;
+  -webkit-transform: rotateZ(0deg) scale(1, 1);
+          transform: rotateZ(0deg) scale(1, 1);
+}
+
+.wave:after {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-animation: waves 16s infinite;
+          animation: waves 16s infinite;
+}
+
+.wave:before {
+  opacity: 0.7;
+  -webkit-transform: scale(1, 0.5);
+          transform: scale(1, 0.5);
+  -webkit-animation: waves 10s infinite;
+          animation: waves 10s infinite;
+}
+
+@-webkit-keyframes waves {
+  0% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+  }
+  50% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(360deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(360deg) scale(1.8, 1.97);
+  }
+  100% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+  }
+}
+
+@keyframes waves {
+  0% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+  }
+  50% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(360deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(360deg) scale(1.8, 1.97);
+  }
+  100% {
+    -webkit-transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+            transform: translate3d(-17%, -140%, 0) rotateZ(0deg) scale(1.8, 1.97);
+  }
+}
+
+/*btn-2*/
+.screen-2 .btn-wrapper {
+  background: #2ac48f;
+  border-radius: 10px;
+  position: relative;
+}
+
+.screen-2 .btn-wrapper .btn {
+  z-index: 2;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #22986f;
+  z-index: 1;
+}
+
+.start-progress {
+  -webkit-animation: progress-line 3s forwards;
+          animation: progress-line 3s forwards;
+}
+
+.start-progress:after {
+  content: "Загрузка...";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: Arial;
+  color: white;
+  -webkit-animation: progress-start 3.3s forwards;
+          animation: progress-start 3.3s forwards;
+}
+
+.start-progress:before {
+  content: "Загружено";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: Arial;
+  color: white;
+  -webkit-animation: progress-finish .3s forwards 3s;
+          animation: progress-finish .3s forwards 3s;
+}
+
+.screen-2 .btn-wrapper .btn.finish-progress {
+  -webkit-animation: progress-finish-2 .3s forwards;
+          animation: progress-finish-2 .3s forwards;
+}
+
+@-webkit-keyframes progress-line {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes progress-line {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes progress-start {
+  0% {
+    top: -50%;
+  }
+  10% {
+    top: 50%;
+  }
+  90% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+@keyframes progress-start {
+  0% {
+    top: -50%;
+  }
+  10% {
+    top: 50%;
+  }
+  90% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+@-webkit-keyframes progress-finish {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes progress-finish {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@-webkit-keyframes progress-finish-2 {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+@keyframes progress-finish-2 {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+/* 
+    !MENU
+*/
+/*
+    !third button with light line effect
+*/
+.screen-3 .btn {
+  width: 260px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #000;
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
+  -webkit-transition: background .3s .3s,  -webkit-box-shadow .3s .3s;
+  transition: background .3s .3s,  -webkit-box-shadow .3s .3s;
+  transition: background .3s .3s,  box-shadow .3s .3s;
+  transition: background .3s .3s,  box-shadow .3s .3s,  -webkit-box-shadow .3s .3s;
+}
+
+.screen-3 .btn-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-style: 16px;
+  font-family: Arial;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.screen-3 .btn-line-effect-item {
+  list-style: none;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), to(#1111c0));
+  background: linear-gradient(90deg, transparent, #1111c0);
+}
+
+.screen-3 .btn-line-effect-item:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+
+.screen-3 .btn-line-effect-item:nth-child(2) {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#1111c0));
+  background: linear-gradient(360deg, transparent, #1111c0);
+}
+
+.screen-3 .btn-line-effect-item:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  background: -webkit-gradient(linear, right top, left top, from(transparent), to(#1111c0));
+  background: linear-gradient(-90deg, transparent, #1111c0);
+}
+
+.screen-3 .btn-line-effect-item:nth-child(4) {
+  position: absolute;
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#1111c0));
+  background: linear-gradient(transparent, #1111c0);
+}
+
+.screen-3 .btn:hover {
+  background: #1010d3;
+  -webkit-box-shadow: 0 0 30px #1010d3;
+          box-shadow: 0 0 30px #1010d3;
+}
+
+.screen-3 .btn:hover .btn-line-effect-item:nth-child(1) {
+  -webkit-animation: line-1 .5s forwards .15s;
+          animation: line-1 .5s forwards .15s;
+}
+
+.screen-3 .btn:hover .btn-line-effect-item:nth-child(2) {
+  -webkit-animation: line-2 .3s forwards;
+          animation: line-2 .3s forwards;
+}
+
+.screen-3 .btn:hover .btn-line-effect-item:nth-child(3) {
+  -webkit-animation: line-3 .5s forwards .15s;
+          animation: line-3 .5s forwards .15s;
+}
+
+.screen-3 .btn:hover .btn-line-effect-item:nth-child(4) {
+  -webkit-animation: line-4 .3s forwards;
+          animation: line-4 .3s forwards;
+}
+
+@-webkit-keyframes line-1 {
+  0% {
+    top: 0;
+    left: -100%;
+  }
+  100% {
+    top: 0;
+    left: 100%;
+  }
+}
+
+@keyframes line-1 {
+  0% {
+    top: 0;
+    left: -100%;
+  }
+  100% {
+    top: 0;
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes line-2 {
+  0% {
+    top: 100%;
+    left: 0;
+  }
+  100% {
+    top: -100%;
+    left: 0;
+  }
+}
+
+@keyframes line-2 {
+  0% {
+    top: 100%;
+    left: 0;
+  }
+  100% {
+    top: -100%;
+    left: 0;
+  }
+}
+
+@-webkit-keyframes line-3 {
+  0% {
+    bottom: 0;
+    right: -100%;
+  }
+  100% {
+    bottom: 0;
+    right: 100%;
+  }
+}
+
+@keyframes line-3 {
+  0% {
+    bottom: 0;
+    right: -100%;
+  }
+  100% {
+    bottom: 0;
+    right: 100%;
+  }
+}
+
+@-webkit-keyframes line-4 {
+  0% {
+    top: -100%;
+    right: 0;
+  }
+  100% {
+    top: 100%;
+    right: 0;
+  }
+}
+
+@keyframes line-4 {
+  0% {
+    top: -100%;
+    right: 0;
+  }
+  100% {
+    top: 100%;
+    right: 0;
+  }
+}
+
+/*card-with-img-and-beautiful-present-info-img*/
+/*# sourceMappingURL=style.css.map */
